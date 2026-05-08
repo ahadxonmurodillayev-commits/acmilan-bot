@@ -89,4 +89,4 @@ def send_news():
 
 while True:
     send_news()
-    time.sleep(10800)
+    time.sleep(1800)
