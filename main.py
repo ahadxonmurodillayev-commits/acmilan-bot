@@ -2,16 +2,45 @@ import requests
 from bs4 import BeautifulSoup
 from telegram import Bot
 import time
+import os
+from openai import OpenAI
 
-TOKEN = "8607058778:AAExM3hiBhVaQiPlQ7RhfVuErYuEpEkaIwY"
-CHAT_ID = "@acmilan_news_uz"
+BOT_TOKEN = os.getenv("8607058778:AAExM3hiBhVaQiPlQ7RhfVuErYuEpEkaIwY")
+CHAT_ID = os.getenv("-1003961434397")
+OPENAI_API_KEY = os.getenv("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")
 
-bot = Bot(token=TOKEN)
+bot = Bot(token=BOT_TOKEN)
+
+client = OpenAI(api_key=OPENAI_API_KEY)
 
 sent_links = set()
 
+
+def translate_news(title):
+    try:
+        response = client.chat.completions.create(
+            model="gpt-5-mini",
+            messages=[
+                {
+                    "role": "system",
+                    "content": "Sen AC Milan yangiliklarini chiroyli va qisqa tarzda o‘zbek tilida yozadigan futbol sharhlovchisan."
+                },
+                {
+                    "role": "user",
+                    "content": f"Ushbu yangilik sarlavhasini o‘zbekchaga qisqa va tushunarli qilib tarjima qil: {title}"
+                }
+            ],
+            max_tokens=100
+        )
+
+        return response.choices[0].message.content
+
+    except Exception as e:
+        return f"Tarjima xatosi: {e}"
+
+
 def get_news():
-    url = "https://m.milannews.it/"
+    url = "https://www.milannews.it/"
     res = requests.get(url)
     soup = BeautifulSoup(res.text, "html.parser")
 
@@ -34,27 +63,29 @@ def get_news():
 
     return result
 
+
 def send_news():
     news_list = get_news()
 
     for title, link in news_list:
+        uzbek_text = translate_news(title)
 
-        text = f"""🚨🔴⚫ AC Milan yangiliklari
+        text = f"""
+🔴⚫ AC Milan yangiliklari
 
-📰 {title}
+📰 {uzbek_text}
 
-📌 Batafsil:
+🔗 Batafsil:
 {link}
 
 #ACMilan
-
-🔴⚫ AC Milan yangiliklari
 """
 
         bot.send_message(
             chat_id=CHAT_ID,
             text=text
         )
+
 
 while True:
     send_news()
