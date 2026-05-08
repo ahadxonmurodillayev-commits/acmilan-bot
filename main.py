@@ -5,7 +5,7 @@ import time
 import os
 from openai import OpenAI
 
-BOT_TOKEN = os.getenv(""BOT_TOKEN"")
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 CHAT_ID = os.getenv("CHAT_ID")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
