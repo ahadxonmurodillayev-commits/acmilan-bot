@@ -181,5 +181,30 @@ async def main():
             await asyncio.sleep(CHECK_SECONDS)
 
 
+
 if __name__ == '__main__':
-    asyncio.run(main())
+    if os.getenv('TEST_POST', 'false').lower() == 'true':
+        async def test_once():
+            async with Bot(token=BOT_TOKEN) as bot:
+                for source in SOURCES:
+                    try:
+                        items = await asyncio.to_thread(discover, source)
+                        for url, fallback_title in items:
+                            title, body, image = await asyncio.to_thread(
+                                article_data, url
+                            )
+                            post = await write_post(
+                                title or fallback_title, body, url
+                            )
+                            if post:
+                                await publish(bot, post, image, url)
+                                log.info('TEST POST completed: %s', url)
+                                return
+                    except Exception:
+                        log.exception('Test source failed: %s', source)
+                log.error('No suitable article found for test')
+
+        asyncio.run(test_once())
+    else:
+        asyncio.run(main())
+
