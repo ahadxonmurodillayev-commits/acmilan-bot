@@ -1,5 +1,5 @@
-python-telegram-bot==20.7
+openai>=1.80,<3
+python-telegram-bot>=22,<23
 requests>=2.31,<3
 beautifulsoup4>=4.12,<5
-openai>=1.30,<3
-pillow>=12,<14
+Pillow>=10,<13
