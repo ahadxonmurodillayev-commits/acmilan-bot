@@ -28,7 +28,7 @@ from PIL import Image, ImageOps, UnidentifiedImageError
 from telegram import Bot
 from telegram.error import BadRequest, Forbidden, NetworkError, RetryAfter, TimedOut
 
-VERSION = "milannews-only-1.1-uz"
+VERSION = "milannews-only-1.1.1-uz"
 RSS_URL = "https://www.milannews.it/rss/"
 SITE_URL = "https://www.milannews.it/"
 CHANNEL_SIGNATURE = "🇮🇹 @acmilannews_uzb ❤️🖤"
@@ -282,7 +282,7 @@ async def translate(client: AsyncOpenAI | None, item: News, body: str) -> tuple[
         try:
             response = await client.chat.completions.create(
                 model=OPENAI_MODEL,
-                temperature=0.25,
+                # Temperature omitted: many newer models accept only default 1.
                 response_format={"type": "json_object"},
                 messages=[
                     {"role": "system", "content": system_prompt},
