@@ -1,85 +1,19 @@
-name: Prepare reviewed files
+name: Tests
 on:
+  pull_request:
   push:
-    branches: ['fix/full-article-editorial-pipeline']
-    paths: ['.github/workflows/tests.yml']
+    branches: [main, 'fix/**']
 permissions:
-  contents: write
+  contents: read
 jobs:
-  prepare-review:
-    if: github.repository == 'ahadxonmurodillayev-commits/acmilan-bot' && github.ref == 'refs/heads/fix/full-article-editorial-pipeline'
+  unit-tests:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: fix/full-article-editorial-pipeline
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Restore verified supporting files
-        run: |
-          python - <<'PYCODE'
-          from pathlib import Path, PurePosixPath
-          import hashlib, zipfile
-          archive = Path("review-assets.zip")
-          expected = set(['.env.example', '.gitignore', 'README.md', 'docs/AUDIT.md', 'docs/PULL_REQUEST.md', 'docs/source-check.json', 'docs/test-results.txt', 'render.yaml', 'scripts/check_sources.py', 'scripts/preview_articles.py', 'scripts/queue_admin.py', 'tests/fixtures/635306.html', 'tests/fixtures/635306.txt', 'tests/fixtures/635347.html', 'tests/fixtures/635347.txt', 'tests/fixtures/635356.html', 'tests/fixtures/635356.txt', 'tests/fixtures/manifest.json', 'tests/test_editorial.py', 'tests/test_extraction.py', 'tests/test_photos.py', 'tests/test_queue_admin.py', 'tests/test_reliability.py', 'tests/test_time.py'])
-          if archive.is_file():
-              if hashlib.sha256(archive.read_bytes()).hexdigest() != "c1587ad25c6387680baa8a726cc187c10b2d95f275164844e486a2b9f7c4acd5":
-                  raise SystemExit("Archive checksum mismatch; no files were changed")
-              roots = {"main.py": "66aa9630eabcdf30fdba9cb135c016870a2fd9b706ed9ec929020e989517e10e", "requirements.txt": "410409df83051cd2ccc7f179f0e33a91009e233571c7b6f1818c4d88185bf759"}
-              for name, digest in roots.items():
-                  if hashlib.sha256(Path(name).read_bytes()).hexdigest() != digest:
-                      raise SystemExit("Reviewed core file differs: " + name)
-              with zipfile.ZipFile(archive) as bundle:
-                  names = bundle.namelist()
-                  if len(names) != len(expected) or set(names) != expected:
-                      raise SystemExit("Unexpected archive paths; no files were changed")
-                  if bundle.testzip() is not None:
-                      raise SystemExit("Corrupt archive; no files were changed")
-                  for name in names:
-                      path = PurePosixPath(name)
-                      if path.is_absolute() or ".." in path.parts:
-                          raise SystemExit("Unsafe archive path")
-                      target = Path(name)
-                      if any(parent.is_symlink() for parent in [target, *target.parents]):
-                          raise SystemExit("Symbolic link destination is not allowed")
-                      if target.exists() and target.read_bytes() != bundle.read(name):
-                          raise SystemExit("Existing file differs; refusing to replace: " + name)
-                  bundle.extractall(".")
-              archive.unlink()
-              print("Restored 24 reviewed files. Core code was preserved.")
-          else:
-              print("Archive absent; checking the existing test suite.")
-          PYCODE
+          cache: pip
       - run: python -m pip install -r requirements.txt
-      - name: Run all 73 reviewed tests
-        run: |
-          python - <<'TESTS'
-          import unittest
-          suite = unittest.defaultTestLoader.discover('tests')
-          if suite.countTestCases() != 73:
-              raise SystemExit('Expected exactly 73 reviewed tests')
-          result = unittest.TextTestRunner(verbosity=2).run(suite)
-          raise SystemExit(0 if result.wasSuccessful() else 1)
-          TESTS
+      - run: python -m unittest discover -s tests -v
       - run: python -m compileall -q main.py scripts
-      - name: Commit supporting files to the review branch
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A -- .env.example .gitignore README.md render.yaml docs scripts tests
-          if git ls-files --error-unmatch review-assets.zip >/dev/null 2>&1; then
-            git add -u -- review-assets.zip
-          fi
-          git diff --cached --check
-          if git diff --cached --name-only | grep -q '^.github/'; then
-            echo 'Refusing to modify a workflow automatically.'
-            exit 1
-          fi
-          if git diff --cached --quiet; then
-            echo 'No supporting file changes to commit.'
-            exit 0
-          fi
-          git commit -m 'Add reviewed tests, fixtures, scripts and documentation'
-          git push origin HEAD:refs/heads/fix/full-article-editorial-pipeline
