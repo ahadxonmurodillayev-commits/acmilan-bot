@@ -1,0 +1,30 @@
+# Review only: applying this Blueprint is a deployment and requires owner approval.
+services:
+  - type: worker
+    name: acmilan-bot
+    runtime: python
+    plan: starter
+    autoDeployTrigger: 'off'
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    disk:
+      name: milannews-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.14
+      - key: BOT_TOKEN
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: CHAT_ID
+        value: '@acmilannews_uzb'
+      - key: OPENAI_MODEL
+        value: gpt-4.1-mini
+      - key: DB_PATH
+        value: /var/data/milan_seen.sqlite3
+      - key: DRY_RUN
+        value: 'true'
+      - key: TEST_POST
+        value: 'false'

@@ -1,0 +1,126 @@
+test_full_visible_caption_limit_includes_emoji_source_and_signature (test_editorial.CaptionTests.test_full_visible_caption_limit_includes_emoji_source_and_signature) ... ok
+test_html_is_escaped_and_link_is_only_milannews (test_editorial.CaptionTests.test_html_is_escaped_and_link_is_only_milannews) ... ok
+test_oversize_never_silently_clips_a_key_fact (test_editorial.CaptionTests.test_oversize_never_silently_clips_a_key_fact) ... ok
+test_api_error_does_not_log_credentials_or_send_italian (test_editorial.EditorialContractTests.test_api_error_does_not_log_credentials_or_send_italian) ... ok
+test_full_source_tail_reaches_all_stages_without_7500_cutoff (test_editorial.EditorialContractTests.test_full_source_tail_reaches_all_stages_without_7500_cutoff) ... 2026-11-06 20:46:38,235 INFO EDITORIAL_VALID | source_chars=11519 | essential_facts=3 | url=https://www.milannews.it/calciomercato-milan/letizia-strategie-mercato-milan-nel-fascia-passi-giocatori-fascia-c-635347
+ok
+test_incompatible_json_mode_has_clear_safe_failure (test_editorial.EditorialContractTests.test_incompatible_json_mode_has_clear_safe_failure) ... ok
+test_invented_source_quote_is_rejected_before_drafting (test_editorial.EditorialContractTests.test_invented_source_quote_is_rejected_before_drafting) ... ok
+test_italian_or_cyrillic_is_never_accepted (test_editorial.EditorialContractTests.test_italian_or_cyrillic_is_never_accepted) ... 2026-11-06 20:46:38,240 WARNING EDITORIAL_REWRITE | stage=layout | attempt=1 | url=https://www.milannews.it/calciomercato-milan/letizia-strategie-mercato-milan-nel-fascia-passi-giocatori-fascia-c-635347
+2026-11-06 20:46:38,240 WARNING EDITORIAL_REWRITE | stage=layout | attempt=2 | url=https://www.milannews.it/calciomercato-milan/letizia-strategie-mercato-milan-nel-fascia-passi-giocatori-fascia-c-635347
+2026-11-06 20:46:38,240 WARNING EDITORIAL_REWRITE | stage=layout | attempt=3 | url=https://www.milannews.it/calciomercato-milan/letizia-strategie-mercato-milan-nel-fascia-passi-giocatori-fascia-c-635347
+2026-11-06 20:46:38,241 WARNING EDITORIAL_REWRITE | stage=layout | attempt=1 | url=https://www.milannews.it/calciomercato-milan/letizia-strategie-mercato-milan-nel-fascia-passi-giocatori-fascia-c-635347
+2026-11-06 20:46:38,241 WARNING EDITORIAL_REWRITE | stage=layout | attempt=2 | url=https://www.milannews.it/calciomercato-milan/letizia-strategie-mercato-milan-nel-fascia-passi-giocatori-fascia-c-635347
+2026-11-06 20:46:38,242 WARNING EDITORIAL_REWRITE | stage=layout | attempt=3 | url=https://www.milannews.it/calciomercato-milan/letizia-strategie-mercato-milan-nel-fascia-passi-giocatori-fascia-c-635347
+ok
+test_json_repair_retry_is_bounded (test_editorial.EditorialContractTests.test_json_repair_retry_is_bounded) ... 2026-11-06 20:46:38,243 WARNING EDITORIAL_API_ERROR | type=ValueError | attempt=1
+ok
+test_missing_api_key_blocks_translation (test_editorial.EditorialContractTests.test_missing_api_key_blocks_translation) ... ok
+test_missing_essential_name_is_not_published (test_editorial.EditorialContractTests.test_missing_essential_name_is_not_published) ... 2026-11-06 20:46:38,246 WARNING EDITORIAL_REWRITE | stage=layout | attempt=1 | url=https://www.milannews.it/calciomercato-milan/letizia-strategie-mercato-milan-nel-fascia-passi-giocatori-fascia-c-635347
+2026-11-06 20:46:38,246 WARNING EDITORIAL_REWRITE | stage=layout | attempt=2 | url=https://www.milannews.it/calciomercato-milan/letizia-strategie-mercato-milan-nel-fascia-passi-giocatori-fascia-c-635347
+2026-11-06 20:46:38,246 WARNING EDITORIAL_REWRITE | stage=layout | attempt=3 | url=https://www.milannews.it/calciomercato-milan/letizia-strategie-mercato-milan-nel-fascia-passi-giocatori-fascia-c-635347
+ok
+test_oversize_is_rewritten_semantically_and_rechecked (test_editorial.EditorialContractTests.test_oversize_is_rewritten_semantically_and_rechecked) ... 2026-11-06 20:46:38,248 WARNING EDITORIAL_REWRITE | stage=layout | attempt=1 | url=https://www.milannews.it/calciomercato-milan/letizia-strategie-mercato-milan-nel-fascia-passi-giocatori-fascia-c-635347
+2026-11-06 20:46:38,248 INFO EDITORIAL_VALID | source_chars=1696 | essential_facts=3 | url=https://www.milannews.it/calciomercato-milan/letizia-strategie-mercato-milan-nel-fascia-passi-giocatori-fascia-c-635347
+ok
+test_real_sources_keep_key_arguments_names_and_opinion_attribution (test_editorial.EditorialContractTests.test_real_sources_keep_key_arguments_names_and_opinion_attribution) ... 2026-11-06 20:46:38,250 INFO EDITORIAL_VALID | source_chars=1696 | essential_facts=3 | url=https://www.milannews.it/calciomercato-milan/letizia-strategie-mercato-milan-nel-fascia-passi-giocatori-fascia-c-635347
+2026-11-06 20:46:38,252 INFO EDITORIAL_VALID | source_chars=1539 | essential_facts=3 | url=https://www.milannews.it/news/pasotto-amorim-trascorso-ultimi-cancellare-parola-inter-trovava-ovunque-invece-635356
+2026-11-06 20:46:38,253 INFO EDITORIAL_VALID | source_chars=971 | essential_facts=3 | url=https://www.milannews.it/news/bucciantini-in-milan-andando-rima-635306
+ok
+test_review_cannot_approve_an_unsupported_fact_or_bad_language (test_editorial.EditorialContractTests.test_review_cannot_approve_an_unsupported_fact_or_bad_language) ... 2026-11-06 20:46:38,255 WARNING EDITORIAL_REWRITE | stage=source_review | attempt=1 | url=https://www.milannews.it/calciomercato-milan/letizia-strategie-mercato-milan-nel-fascia-passi-giocatori-fascia-c-635347
+2026-11-06 20:46:38,256 WARNING EDITORIAL_REWRITE | stage=source_review | attempt=2 | url=https://www.milannews.it/calciomercato-milan/letizia-strategie-mercato-milan-nel-fascia-passi-giocatori-fascia-c-635347
+2026-11-06 20:46:38,256 WARNING EDITORIAL_REWRITE | stage=source_review | attempt=3 | url=https://www.milannews.it/calciomercato-milan/letizia-strategie-mercato-milan-nel-fascia-passi-giocatori-fascia-c-635347
+ok
+test_reviewer_rejects_superficial_missing_example_and_requests_rewrite (test_editorial.EditorialContractTests.test_reviewer_rejects_superficial_missing_example_and_requests_rewrite) ... 2026-11-06 20:46:38,258 WARNING EDITORIAL_REWRITE | stage=source_review | attempt=1 | url=https://www.milannews.it/calciomercato-milan/letizia-strategie-mercato-milan-nel-fascia-passi-giocatori-fascia-c-635347
+2026-11-06 20:46:38,258 INFO EDITORIAL_VALID | source_chars=1696 | essential_facts=3 | url=https://www.milannews.it/calciomercato-milan/letizia-strategie-mercato-milan-nel-fascia-passi-giocatori-fascia-c-635347
+ok
+test_transient_api_failures_retry_without_exposing_messages (test_editorial.EditorialContractTests.test_transient_api_failures_retry_without_exposing_messages) ... 2026-11-06 20:46:38,260 WARNING EDITORIAL_API_ERROR | type=APIConnectionError | attempt=1
+2026-11-06 20:46:38,260 WARNING EDITORIAL_API_ERROR | type=RateLimitError | attempt=1
+2026-11-06 20:46:38,261 WARNING EDITORIAL_API_ERROR | type=InternalServerError | attempt=1
+ok
+test_ad_sidebar_related_links_and_menus_are_removed_but_inline_names_kept (test_extraction.ExtractionTests.test_ad_sidebar_related_links_and_menus_are_removed_but_inline_names_kept) ... ok
+test_all_feed_topics_are_retained_and_external_sources_rejected (test_extraction.ExtractionTests.test_all_feed_topics_are_retained_and_external_sources_rejected) ... ok
+test_complete_body_is_not_silently_cut_at_old_7500_or_8000_limits (test_extraction.ExtractionTests.test_complete_body_is_not_silently_cut_at_old_7500_or_8000_limits) ... ok
+test_full_short_article_need_not_exceed_rss_length (test_extraction.ExtractionTests.test_full_short_article_need_not_exceed_rss_length) ... 2026-11-06 20:46:38,367 INFO ARTICLE_TEXT | chars=53 | source=#tcc-read [role="main"] .text | rss_fallback=false | url=https://www.milannews.it/news/pasotto-amorim-trascorso-ultimi-cancellare-parola-inter-trovava-ovunque-invece-635356
+ok
+test_jsonld_full_body_is_used_without_description_or_length_clipping (test_extraction.ExtractionTests.test_jsonld_full_body_is_used_without_description_or_length_clipping) ... ok
+test_missing_body_never_falls_back_to_rss_and_logs_clear_failure (test_extraction.ExtractionTests.test_missing_body_never_falls_back_to_rss_and_logs_clear_failure) ... ok
+test_network_failure_does_not_log_exception_credentials (test_extraction.ExtractionTests.test_network_failure_does_not_log_exception_credentials) ... ok
+test_non_milannews_redirect_is_not_fetched (test_extraction.ExtractionTests.test_non_milannews_redirect_is_not_fetched) ... 2026-11-06 20:46:38,371 ERROR ARTICLE_TEXT_UNAVAILABLE | reason=non_milannews_destination | rss_fallback=false | url=https://www.milannews.it/news/pasotto-amorim-trascorso-ultimi-cancellare-parola-inter-trovava-ovunque-invece-635356
+ok
+test_partial_http_response_is_not_published_as_full_article (test_extraction.ExtractionTests.test_partial_http_response_is_not_published_as_full_article) ... 2026-11-06 20:46:38,371 ERROR ARTICLE_TEXT_UNAVAILABLE | reason=incomplete_http_response | rss_fallback=false | url=https://www.milannews.it/news/pasotto-amorim-trascorso-ultimi-cancellare-parola-inter-trovava-ovunque-invece-635356
+ok
+test_partial_paginated_body_is_explicitly_rejected (test_extraction.ExtractionTests.test_partial_paginated_body_is_explicitly_rejected) ... 2026-11-06 20:46:38,372 ERROR ARTICLE_TEXT_UNAVAILABLE | reason=partial_or_paginated_article_body | rss_fallback=false | url=https://www.milannews.it/news/pasotto-amorim-trascorso-ultimi-cancellare-parola-inter-trovava-ovunque-invece-635356
+ok
+test_three_real_articles_include_every_paragraph_and_final_argument (test_extraction.ExtractionTests.test_three_real_articles_include_every_paragraph_and_final_argument) ... 2026-11-06 20:46:38,377 INFO ARTICLE_TEXT | chars=1539 | source=#tcc-read [role="main"] .text | rss_fallback=false | url=https://www.milannews.it/news/pasotto-amorim-trascorso-ultimi-cancellare-parola-inter-trovava-ovunque-invece-635356
+2026-11-06 20:46:38,381 INFO ARTICLE_TEXT | chars=1696 | source=#tcc-read [role="main"] .text | rss_fallback=false | url=https://www.milannews.it/calciomercato-milan/letizia-strategie-mercato-milan-nel-fascia-passi-giocatori-fascia-c-635347
+2026-11-06 20:46:38,386 INFO ARTICLE_TEXT | chars=971 | source=#tcc-read [role="main"] .text | rss_fallback=false | url=https://www.milannews.it/news/bucciantini-in-milan-andando-rima-635306
+ok
+test_absent_photo_requires_no_network (test_photos.OriginalPhotoTests.test_absent_photo_requires_no_network) ... ok
+test_decompression_bomb_falls_back_to_text (test_photos.OriginalPhotoTests.test_decompression_bomb_falls_back_to_text) ... ok
+test_large_original_is_resized_without_changing_aspect_ratio (test_photos.OriginalPhotoTests.test_large_original_is_resized_without_changing_aspect_ratio) ... ok
+test_network_failure_returns_no_photo (test_photos.OriginalPhotoTests.test_network_failure_returns_no_photo) ... ok
+test_non_photo_content_is_rejected (test_photos.OriginalPhotoTests.test_non_photo_content_is_rejected) ... ok
+test_original_jpeg_and_png_are_reencoded_as_valid_jpeg (test_photos.OriginalPhotoTests.test_original_jpeg_and_png_are_reencoded_as_valid_jpeg) ... ok
+test_oversized_download_is_rejected (test_photos.OriginalPhotoTests.test_oversized_download_is_rejected) ... ok
+test_tiny_or_invalid_image_is_rejected_for_text_fallback (test_photos.OriginalPhotoTests.test_tiny_or_invalid_image_is_rejected_for_text_fallback) ... ok
+test_confirmed_absent_delivery_returns_to_retry_queue (test_queue_admin.QueueAdminTests.test_confirmed_absent_delivery_returns_to_retry_queue) ... ok
+test_confirmed_sent_records_receipt_and_does_not_requeue (test_queue_admin.QueueAdminTests.test_confirmed_sent_records_receipt_and_does_not_requeue) ... ok
+test_default_lists_uncertain_rows_without_changing_them (test_queue_admin.QueueAdminTests.test_default_lists_uncertain_rows_without_changing_them) ... ok
+test_known_sent_row_cannot_be_reset_to_pending (test_queue_admin.QueueAdminTests.test_known_sent_row_cannot_be_reset_to_pending) ... ok
+test_listing_missing_database_does_not_create_one (test_queue_admin.QueueAdminTests.test_listing_missing_database_does_not_create_one) ... ok
+test_resolve_without_explicit_review_flag_is_rejected (test_queue_admin.QueueAdminTests.test_resolve_without_explicit_review_flag_is_rejected) ... ok
+test_running_worker_lock_blocks_resolution (test_queue_admin.QueueAdminTests.test_running_worker_lock_blocks_resolution) ... ok
+test_claim_is_atomic_across_two_connections (test_reliability.LedgerTests.test_claim_is_atomic_across_two_connections) ... ok
+test_first_run_seeding_and_existing_seed_are_preserved (test_reliability.LedgerTests.test_first_run_seeding_and_existing_seed_are_preserved) ... ok
+test_legacy_schema_migration_preserves_sent_over_duplicate_pending (test_reliability.LedgerTests.test_legacy_schema_migration_preserves_sent_over_duplicate_pending) ... ok
+test_only_one_worker_can_hold_database_process_lock (test_reliability.LedgerTests.test_only_one_worker_can_hold_database_process_lock) ... ok
+test_opening_another_connection_does_not_release_active_claim (test_reliability.LedgerTests.test_opening_another_connection_does_not_release_active_claim) ... ok
+test_restart_recovers_pre_send_work_and_holds_ambiguous_send (test_reliability.LedgerTests.test_restart_recovers_pre_send_work_and_holds_ambiguous_send) ... 2026-11-06 20:46:38,650 ERROR DELIVERY_UNKNOWN | recovered=1 | manual channel review required
+ok
+test_retry_backoff_is_persisted (test_reliability.LedgerTests.test_retry_backoff_is_persisted) ... ok
+test_same_article_id_different_slug_cannot_repost (test_reliability.LedgerTests.test_same_article_id_different_slug_cannot_repost) ... ok
+test_confirmed_send_records_message_and_cannot_repeat (test_reliability.ProcessingTests.test_confirmed_send_records_message_and_cannot_repeat) ... 2026-11-06 20:46:38,690 INFO POSTED | message_id=82 | photo=False | url=https://www.milannews.it/news/original-title-635356
+ok
+test_dry_run_never_sends_or_marks_sent (test_reliability.ProcessingTests.test_dry_run_never_sends_or_marks_sent) ... 2026-11-06 20:46:38,708 INFO DRY_RUN | prepared post saved, no Telegram send | url=https://www.milannews.it/news/original-title-635356
+ok
+test_exception_text_and_secrets_are_not_logged_or_persisted (test_reliability.ProcessingTests.test_exception_text_and_secrets_are_not_logged_or_persisted) ... ok
+test_explicit_rate_limit_is_safe_to_retry (test_reliability.ProcessingTests.test_explicit_rate_limit_is_safe_to_retry) ... /workspace/acmilan-bot/.venv/lib/python3.12/site-packages/telegram/error.py:243: PTBDeprecationWarning: Deprecated since version v22.2: In a future major version attribute `retry_after` will be of type `datetime.timedelta`. You can opt-in early by setting `PTB_TIMEDELTA=true` or ``PTB_TIMEDELTA=1`` as an environment variable.
+  return get_timedelta_value(  # type: ignore[return-value]
+2026-11-06 20:46:38,745 WARNING TELEGRAM_RATE_LIMIT | queued for retry | url=https://www.milannews.it/news/original-title-635356
+ok
+test_parallel_processing_only_sends_once (test_reliability.ProcessingTests.test_parallel_processing_only_sends_once) ... 2026-11-06 20:46:38,760 INFO POSTED | message_id=82 | photo=False | url=https://www.milannews.it/news/original-title-635356
+ok
+test_photo_timeout_does_not_fall_back_to_second_message (test_reliability.ProcessingTests.test_photo_timeout_does_not_fall_back_to_second_message) ... ok
+test_rss_outage_does_not_block_existing_pending_work (test_reliability.ProcessingTests.test_rss_outage_does_not_block_existing_pending_work) ... 2026-11-06 20:46:38,787 WARNING RSS_FETCH_FAILED | type=RuntimeError | processing saved backlog
+2026-11-06 20:46:38,788 INFO RSS_POLL_COMPLETE | feed=0 | added=0 | interval=1800s
+2026-11-06 20:46:38,792 INFO POSTED | message_id=82 | photo=False | url=https://www.milannews.it/news/original-title-635356
+2026-11-06 20:46:39,495 INFO DELIVERY_PASS_COMPLETE | posted=1 | pending=0 | unknown=0
+ok
+test_safe_photo_rejection_falls_back_to_text (test_reliability.ProcessingTests.test_safe_photo_rejection_falls_back_to_text) ... 2026-11-06 20:46:39,515 WARNING PHOTO_REJECTED | falling back to text
+ok
+test_slow_delivery_does_not_delay_next_rss_poll (test_reliability.ProcessingTests.test_slow_delivery_does_not_delay_next_rss_poll) ... 2026-11-06 20:46:39,533 INFO RSS_POLL_COMPLETE | feed=1 | added=0 | interval=0.02s
+2026-11-06 20:46:39,554 INFO RSS_POLL_COMPLETE | feed=1 | added=0 | interval=0.02s
+2026-11-06 20:46:39,573 INFO RSS_POLL_COMPLETE | feed=1 | added=0 | interval=0.02s
+ok
+test_timeout_is_quarantined_instead_of_automatically_resent (test_reliability.ProcessingTests.test_timeout_is_quarantined_instead_of_automatically_resent) ... 2026-11-06 20:46:39,597 ERROR DELIVERY_UNKNOWN | reason=TimedOut | url=https://www.milannews.it/news/original-title-635356 | manual channel review required
+ok
+test_translation_failure_remains_retryable_and_never_posts_italian (test_reliability.ProcessingTests.test_translation_failure_remains_retryable_and_never_posts_italian) ... 2026-11-06 20:46:39,616 WARNING POST_RETRY | stage=pre_delivery | type=TranslationFailure | url=https://www.milannews.it/news/original-title-635356
+ok
+test_dotted_clock_with_explicit_cue_is_supported (test_time.ItalyTashkentTests.test_dotted_clock_with_explicit_cue_is_supported) ... ok
+test_dst_gap_overlap_and_inconsistent_abbreviation_do_not_generate_hints (test_time.ItalyTashkentTests.test_dst_gap_overlap_and_inconsistent_abbreviation_do_not_generate_hints) ... ok
+test_dst_nonexistent_and_ambiguous_hours_rejected (test_time.ItalyTashkentTests.test_dst_nonexistent_and_ambiguous_hours_rejected) ... ok
+test_italian_source_with_explicit_timezone_is_converted (test_time.ItalyTashkentTests.test_italian_source_with_explicit_timezone_is_converted) ... ok
+test_mixed_utc_and_italian_clocks_use_the_nearest_explicit_zone (test_time.ItalyTashkentTests.test_mixed_utc_and_italian_clocks_use_the_nearest_explicit_zone) ... ok
+test_numeric_date_is_not_misread_as_a_clock (test_time.ItalyTashkentTests.test_numeric_date_is_not_misread_as_a_clock) ... ok
+test_relative_day_uses_italy_publication_date (test_time.ItalyTashkentTests.test_relative_day_uses_italy_publication_date) ... ok
+test_time_rules_read_full_source (test_time.ItalyTashkentTests.test_time_rules_read_full_source) ... ok
+test_unknown_date_or_year_is_not_guessed (test_time.ItalyTashkentTests.test_unknown_date_or_year_is_not_guessed) ... ok
+test_unknown_zone_is_not_assumed_from_italian_site (test_time.ItalyTashkentTests.test_unknown_zone_is_not_assumed_from_italian_site) ... ok
+test_winter_summer_and_next_day (test_time.ItalyTashkentTests.test_winter_summer_and_next_day) ... ok
+test_zone_in_another_sentence_does_not_apply (test_time.ItalyTashkentTests.test_zone_in_another_sentence_does_not_apply) ... ok
+
+----------------------------------------------------------------------
+Ran 73 tests in 1.469s
+
+OK
