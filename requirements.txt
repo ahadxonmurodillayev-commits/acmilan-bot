@@ -3,3 +3,4 @@ python-telegram-bot>=22,<23
 requests>=2.31,<3
 beautifulsoup4>=4.12,<5
 Pillow>=10,<13
+tzdata>=2025.2
