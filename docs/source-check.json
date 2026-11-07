@@ -1,0 +1,67 @@
+{
+  "checked_at_utc": "2026-11-06T20:42:37.945566+00:00",
+  "actions": "Read-only article, RSS and original-photo downloads; no OpenAI/Telegram calls",
+  "articles": [
+    {
+      "id": "635356",
+      "url": "https://www.milannews.it/news/pasotto-amorim-trascorso-ultimi-cancellare-parola-inter-trovava-ovunque-invece-635356",
+      "ok": true,
+      "body_chars": 1539,
+      "body_sha256": "3bde7a690f83a2ac0894adbba2ba67f89f66c4bffd21da064d1a561f256d1d7e",
+      "matches_captured_fixture": true,
+      "missing_expected_factual_anchors": [],
+      "image_url": "https://net-storage-auto.tcccdn.com/storage/milannews.it/img_notizie/thumb3/1c/1c1df667192925679677eba33be0a6a9-40947-oooz0000.jpeg",
+      "photo_downloaded": true,
+      "photo_jpeg_bytes": 69726,
+      "photo_dimensions": [
+        1200,
+        674
+      ],
+      "photo_format": "JPEG"
+    },
+    {
+      "id": "635347",
+      "url": "https://www.milannews.it/calciomercato-milan/letizia-strategie-mercato-milan-nel-fascia-passi-giocatori-fascia-c-635347",
+      "ok": true,
+      "body_chars": 1696,
+      "body_sha256": "e63723867751373de3b7ab22b3851caefcc167490d8c39483c872f3ed8b5c86b",
+      "matches_captured_fixture": true,
+      "missing_expected_factual_anchors": [],
+      "image_url": "https://net-storage-auto.tcccdn.com/storage/milannews.it/img_notizie/thumb3/88/881cee24e811f69ea1f9cdc48341968c-19542-oooz0000.jpeg",
+      "photo_downloaded": true,
+      "photo_jpeg_bytes": 84910,
+      "photo_dimensions": [
+        1200,
+        674
+      ],
+      "photo_format": "JPEG"
+    },
+    {
+      "id": "635306",
+      "url": "https://www.milannews.it/news/bucciantini-in-milan-andando-rima-635306",
+      "ok": true,
+      "body_chars": 971,
+      "body_sha256": "3d8e84c232b913aa0e90fd4dea3c903f2e27716c2ccd23ce234a0be2f98d7e71",
+      "matches_captured_fixture": true,
+      "missing_expected_factual_anchors": [],
+      "image_url": "https://net-storage-auto.tcccdn.com/storage/milannews.it/img_notizie/thumb3/30/30312552a8bd38cae60c87e90fb0037d-89836-301o855o1228o1782z1046.jpeg",
+      "photo_downloaded": true,
+      "photo_jpeg_bytes": 83516,
+      "photo_dimensions": [
+        1200,
+        674
+      ],
+      "photo_format": "JPEG"
+    }
+  ],
+  "rss": {
+    "ok": true,
+    "url": "https://www.milannews.it/rss/",
+    "items": 20,
+    "oldest_publication_utc": "2026-11-06T17:30:41+00:00",
+    "newest_publication_utc": "2026-11-06T20:30:02+00:00",
+    "coverage": "Rolling feed only; not an exhaustive archive or outage backfill",
+    "interval_seconds": 1800
+  },
+  "ok": true
+}
